@@ -14,7 +14,6 @@ app.use(json());
 
 app.use("/account", accountRouter);
 app.use("/users", userRouter);
-app.use("/movies", movieRouter);
 
 app.get("/", (req, res) => {
   res.status(200).send({
