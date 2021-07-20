@@ -31,19 +31,13 @@ async function signUp(req, res, next) {
 
 async function fetchUsers(req, res, next) {
   try {
-    const dbResponse = await db.User.find();
-
-    if (dbResponse.error) {
-      res.status(400).send(
-        generateResponse({
-          error: dbResponse.error,
-        }),
-      );
-    }
+    const users = await db.User.find();
 
     res.status(200).send(
       generateResponse({
-        users: dbResponse.data,
+        data: {
+          users: users,
+        },
       }),
     );
   } catch (error) {
@@ -57,19 +51,11 @@ async function fetchUserById(req, res, next) {
   } = req;
 
   try {
-    const dbResponse = await db.User.findById(userId);
-
-    if (dbResponse.error) {
-      res.status(400).send(
-        generateResponse({
-          error: dbResponse.error,
-        }),
-      );
-    }
+    const user = await db.User.findById(userId);
 
     res.status(200).send(
       generateResponse({
-        data: dbResponse.data,
+        data: { user: user },
       }),
     );
   } catch (error) {
