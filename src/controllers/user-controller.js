@@ -43,7 +43,7 @@ async function fetchUsers(req, res, next) {
 
     res.status(200).send(
       generateResponse({
-        data: dbResponse.data,
+        users: dbResponse.data,
       }),
     );
   } catch (error) {
