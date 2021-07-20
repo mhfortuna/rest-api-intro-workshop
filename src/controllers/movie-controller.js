@@ -146,7 +146,7 @@ async function fetchMovie(req, res, next) {
 
     res.status(200).send(
       generateResponse({
-        data: movie,
+        data: { movie: movie },
       }),
     );
   } catch (err) {

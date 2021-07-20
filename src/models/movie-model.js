@@ -1,14 +1,12 @@
 const mongoose = require("mongoose");
-const { Schema } = require("mongoose");
 
-const MovieSchema = new Schema({
+const MovieSchema = new mongoose.Schema({
   title: {
     type: String,
     required: [true, "Movie title is required"],
   },
-  releaseDate: {
-    type: Date,
-  },
+  releaseYear: Number,
+  duration: Number,
   originalLanguage: String,
   posterPath: String,
   plot: String,
@@ -17,18 +15,8 @@ const MovieSchema = new Schema({
     min: 0,
   },
   productionCountries: [String],
-  productionCompanies: [
-    {
-      type: mongoose.SchemaTypes.ObjectId,
-      ref: "companies",
-    },
-  ],
-  genres: [
-    {
-      type: mongoose.SchemaTypes.ObjectId,
-      ref: "genre",
-    },
-  ],
+  productionCompanies: [String],
+  genres: [String],
   externalIds: {
     type: Map,
     of: String,
