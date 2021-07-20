@@ -54,7 +54,6 @@ async function fetchUsers(req, res, next) {
 async function fetchUserById(req, res, next) {
   const {
     params: { id: userId },
-    query: { fullFetch },
   } = req;
 
   try {

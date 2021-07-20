@@ -1,11 +1,5 @@
 const db = require("../models");
-const { generateUrl } = require("../utils/utils");
 const { generateResponse } = require("../utils/generateResponse");
-
-const {
-  generateNextPagePath,
-  generatePrevPagePath,
-} = require("../utils/paginationControl");
 
 async function addMovie(req, res, next) {
   const {
@@ -31,12 +25,6 @@ async function addMovie(req, res, next) {
       productionCountries: productionCountries,
       productionCompanies: productionCompanies,
       genres: genres,
-    });
-
-    const credits = await db.MovieCredits.create({
-      movieId: movie._id,
-      crew: [],
-      cast: [],
     });
 
     res.status(201).send(
@@ -107,35 +95,13 @@ async function updateMovie(req, res, next) {
 }
 
 async function fetchMovies(req, res, next) {
-  const { size = 20, offset = 0 } = req.query;
-
-  const requestUrl = generateUrl(req);
-
-  const pageSize = parseInt(size);
-  const pageOffset = parseInt(offset);
-
   try {
-    const totalMovies = await db.Movie.countDocuments();
-    const movies = await db.Movie.find({}, "-__v")
-      .skip(pageOffset)
-      .limit(pageSize);
+    const movies = await db.Movie.find({}, "-__v").lean();
 
     res.status(201).send(
       generateResponse({
         data: {
-          total: totalMovies,
-          next: generateNextPagePath({
-            pathPrefix: requestUrl,
-            currOffset: pageOffset,
-            pageSize: pageSize,
-            totalItems: totalMovies,
-          }),
-          prev: generatePrevPagePath({
-            pathPrefix: requestUrl,
-            currOffset: pageOffset,
-            pageSize: pageSize,
-          }),
-          data: movies,
+          movies: movies,
         },
       }),
     );
