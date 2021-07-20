@@ -3,7 +3,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const { json } = require("body-parser");
 
-const { movieRouter, accountRouter, userRouter } = require("./routes");
+const { accountRouter, userRouter } = require("./routes");
 
 const { errorMiddleware } = require("./middlewares");
 const app = express();
