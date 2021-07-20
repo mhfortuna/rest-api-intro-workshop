@@ -33,12 +33,6 @@ async function addMovie(req, res, next) {
       genres: genres,
     });
 
-    const credits = await db.MovieCredits.create({
-      movieId: movie._id,
-      crew: [],
-      cast: [],
-    });
-
     res.status(201).send(
       generateResponse({
         data: movie._id,
