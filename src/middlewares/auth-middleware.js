@@ -1,10 +1,9 @@
-const { getAuthToken, verifyAuthToken } = require("../services/auth");
 const db = require("../models");
 
 async function authMiddleware(req, res, next) {
   try {
-    const bearerToken = await getAuthToken(req.headers);
-    const userClaims = await verifyAuthToken(bearerToken);
+    // Get Token from request and decode any existing credentials
+    // userClaims: obj with user information
 
     const user = await db.User.findOne({
       email: userClaims.email,
