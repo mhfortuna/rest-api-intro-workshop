@@ -156,7 +156,7 @@ Following the creation of models and controllers of the entities to be dealing w
 
 The controller will be used for handling login requests, in which after checking the validity of the credentials, a token will be generated for the given user and sent as a response.
 
-The middleware will be used for checking the existence of the token in each request, making sure it comes in the right format ('Bearer <token>') and the credentials or time elapsed are valid.
+The middleware will be used for checking the existence of the token in each request, making sure it comes in the right format ('Bearer `token`') and the credentials or time elapsed are valid.
 
 ### Step-By-Step
 
