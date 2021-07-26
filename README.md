@@ -18,7 +18,7 @@ In this workshop you will learn how to implement authentication using JSON Web T
   - [Generate Token](#generate-token)
     - [Params](#params)
   - [Verify Token](#verify-token)
-- [CRUD API Exercises](#crud-api-exercises)
+- [Authentication Implementation](#authentication-implementation)
   - [Step-By-Step](#step-by-step)
   - [1. Implement an authorization controller in the `/src/routes/auth-controller.js` file](#1-implement-an-authorization-controller-in-the-srcroutesauth-controllerjs-file)
   - [2. Implement an auth-middleware for token verification, in the `/src/middlewares/auth-middleware.js` file](#2-implement-an-auth-middleware-for-token-verification-in-the-srcmiddlewaresauth-middlewarejs-file)
@@ -150,15 +150,17 @@ async function verifyAuthToken(token) {
 }
 ```
 
-## CRUD API Exercises
+## Authentication Implementation
 
-In this step we will create the CRUD endpoints for the Movie schema. You will have to create endpoints and controllers so that you can create, read, modify and delete movie resources.
+Following the creation of models and controllers of the entities to be dealing with, now you will have to create a controller and a middleware for token request and verification management.
 
-The schema can be found in the `src/models/movie-model.js` file.
+The controller will be used for handling login requests, in which after checking the validity of the credentials, a token will be generated for the given user and sent as a response.
+
+The middleware will be used for checking the existence of the token in each request, making sure it comes in the right format ('Bearer `token`') and the credentials or time elapsed are valid.
 
 ### Step-By-Step
 
-- If you get stuck you can find the answers in the `02-jwt-pagination-solution` branch
+- If you get stuck you can find the answers in the `03-jwt-pagination-solution` branch
 - Try not to peek at the solutions and solve them with your pair programming partner
 - To finish this part you have 25-30 minutes
 
