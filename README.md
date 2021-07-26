@@ -20,8 +20,8 @@ In this workshop you will learn how to implement authentication using JSON Web T
   - [Verify Token](#verify-token)
 - [CRUD API Exercises](#crud-api-exercises)
   - [Step-By-Step](#step-by-step)
-  - [1. Create the movie CRUD controllers in the `/src/routes/movie-controller.js` file](#1-create-the-movie-crud-controllers-in-the-srcroutesmovie-controllerjs-file)
-  - [2. Create the movie CRUD routes in the `/src/routes/movie-routes.js` file](#2-create-the-movie-crud-routes-in-the-srcroutesmovie-routesjs-file)
+  - [1. Implement an authorization controller in the `/src/routes/auth-controller.js` file](#1-implement-an-authorization-controller-in-the-srcroutesauth-controllerjs-file)
+  - [2. Implement an auth-middleware for token verification, in the `/src/middlewares/auth-middleware.js` file](#2-implement-an-auth-middleware-for-token-verification-in-the-srcmiddlewaresauth-middlewarejs-file)
 
 ## Workshop Material
 
@@ -158,13 +158,13 @@ The schema can be found in the `src/models/movie-model.js` file.
 
 ### Step-By-Step
 
-- If you get stuck you can find the answers in the `01-base-intro-solution` branch
+- If you get stuck you can find the answers in the `02-jwt-pagination-solution` branch
 - Try not to peek at the solutions and solve them with your pair programming partner
-- To finish this part you have 20-30 minutes
+- To finish this part you have 25-30 minutes
 
-### 1. Create the movie CRUD controllers in the `/src/routes/movie-controller.js` file
+### 1. Implement an authorization controller in the `/src/routes/auth-controller.js` file
 
-### 2. Create the movie CRUD routes in the `/src/routes/movie-routes.js` file
+### 2. Implement an auth-middleware for token verification, in the `/src/middlewares/auth-middleware.js` file
 
 ## Author <!-- omit in toc -->
 
