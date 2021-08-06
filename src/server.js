@@ -1,6 +1,5 @@
 const express = require("express");
 const helmet = require("helmet");
-// const { json } = require("body-parser");
 const morgan = require("morgan");
 
 const { mainRouter, userRouter, movieRouter, personRouter } = require("./routes");
