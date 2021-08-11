@@ -6,7 +6,7 @@ services:
       - PUID=1000
       - PGID=1000
     volumes:
-      - C:\Users\Mathi\Visual Studio Code\Workshops\Node REST API\rest-api-intro-workshop\mongodb\database:/data/db
+      - "/home/mathias/mongo/db:/data/db"
     ports:
       - "27017:27017"
     restart: unless-stopped
