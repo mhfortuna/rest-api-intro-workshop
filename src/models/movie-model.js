@@ -48,7 +48,7 @@ const MovieSchema = new Schema({
     default: undefined,
     required: true,
   },
-}, { timestamps: true });
+}, { timestamps: true, strict: false });
 
 const movieModel = new mongoose.model("movie", MovieSchema);
 
