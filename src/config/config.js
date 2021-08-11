@@ -4,8 +4,9 @@ const {
   MONGO_DB_URL_DEVELOPMENT,
   MONGO_DB_URL_PRODUCTION,
   PORT = 4000,
-  NODE_ENV = "development"
-} = process.env
+  ACCESS_TOKEN_SECRET,
+  NODE_ENV = "development",
+} = process.env;
 
 const CONFIG = {
   production: {
@@ -13,7 +14,10 @@ const CONFIG = {
       port: PORT,
     },
     db: {
-      url: MONGO_DB_URL_PRODUCTION
+      url: MONGO_DB_URL_PRODUCTION,
+    },
+    auth: {
+      secret: ACCESS_TOKEN_SECRET,
     },
   },
   development: {
@@ -22,11 +26,13 @@ const CONFIG = {
     },
     db: {
       url: MONGO_DB_URL_DEVELOPMENT,
-    }
-
-  }
-}
+    },
+    auth: {
+      secret: ACCESS_TOKEN_SECRET,
+    },
+  },
+};
 
 module.exports = {
-  config: CONFIG[NODE_ENV]
-}
+  config: CONFIG[NODE_ENV],
+};
